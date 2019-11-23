@@ -11,7 +11,7 @@ class TicketHome extends StatelessWidget {
 
       ),
       body: ListView.builder(
-        itemCount: 5, // el numero de elementos que deseo mostrar en este caso 5
+        itemCount: tickets.length, // el numero de elementos que deseo mostrar en este caso 5
           itemBuilder: (BuildContext context, int index) {
         // el itembuilder te genera automatico infinitos elementos
         return TicketItem(title: tickets[index]?.title);
