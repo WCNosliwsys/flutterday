@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutterday/models/ticket.dart';
+import 'package:flutterday/ui/ticket/home/ticket_item.dart';
 
 class TicketHome extends StatelessWidget {
   @override
@@ -11,17 +13,8 @@ class TicketHome extends StatelessWidget {
       body: ListView.builder(
         itemCount: 5, // el numero de elementos que deseo mostrar en este caso 5
           itemBuilder: (BuildContext context, int index) {
-          final Ticket ticket=tickets[index];
         // el itembuilder te genera automatico infinitos elementos
-        return ListTile(
-          leading: Icon(Icons.person),
-          title: Container(
-              height: 50.0,
-              width: 50.0,
-              child: Text(ticket.title), // si no existe un elemento se pone un valor por defecto
-          ),
-
-        );
+        return TicketItem(title: tickets[index]?.title);
       }),
     );
   }
@@ -33,13 +26,9 @@ List<Ticket> tickets= [
   Ticket(title: "Ticket 001"),
   Ticket(title: "Ticket 002"),
   Ticket(title: "Ticket 003"),
-  Ticket(),
+  Ticket(title: "Ticket 003"),
   Ticket(title: "Ticket 005"),
   Ticket(title: "Ticket 006"),
 
 ];
 
-class Ticket{
-  final String title;
-  Ticket({String title}): this.title=title?? 'untitled';
-}
