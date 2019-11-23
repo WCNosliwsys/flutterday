@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutterday/models/ticket.dart';
+import 'package:flutterday/data/data.dart';
 import 'package:flutterday/ui/ticket/home/ticket_item.dart';
 
 class TicketHome extends StatelessWidget {
@@ -22,13 +22,5 @@ class TicketHome extends StatelessWidget {
 
 }
 
-List<Ticket> tickets= [
-  Ticket(title: "Ticket 001"),
-  Ticket(title: "Ticket 002"),
-  Ticket(title: "Ticket 003"),
-  Ticket(),
-  Ticket(title: "Ticket 005"),
-  Ticket(title: "Ticket 006"),
 
-];
 
