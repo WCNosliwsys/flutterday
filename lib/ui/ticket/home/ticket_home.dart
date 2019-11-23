@@ -8,7 +8,9 @@ class TicketHome extends StatelessWidget {
       appBar: AppBar(
 
       ),
-      body: ListView.builder(itemBuilder: (BuildContext context, int index) {
+      body: ListView.builder(
+        itemCount: 5, // el numero de elementos que deseo mostrar en este caso 5
+          itemBuilder: (BuildContext context, int index) {
         // el itembuilder te genera automatico infinitos elementos
         return ListTile(
           leading: Icon(Icons.person),
@@ -22,4 +24,21 @@ class TicketHome extends StatelessWidget {
       }),
     );
   }
+
+
+}
+
+List<Ticket> tickets= [
+  Ticket(title: "Ticket 001"),
+  Ticket(title: "Ticket 002"),
+  Ticket(title: "Ticket 003"),
+  Ticket(title: "Ticket 004"),
+  Ticket(title: "Ticket 005"),
+  Ticket(title: "Ticket 006"),
+
+];
+
+class Ticket{
+  final String title;
+  Ticket({this.title});
 }
