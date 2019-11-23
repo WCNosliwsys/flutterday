@@ -8,6 +8,12 @@ class TicketHome extends StatelessWidget {
       appBar: AppBar(
 
       ),
+      body: ListView.builder(itemBuilder: (BuildContext context, int index){
+        // el itembuilder te genera automatico infinitos elementos
+        return Card(
+          child: Text("Ticket $index")
+        );
+      }),
     );
   }
 }
