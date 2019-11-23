@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 class Ticket{
-  final String title;
-  Ticket({@required this.title}):assert(title!=null);//solo impide ejecutar
+  final String _title;
+  Ticket({@required title}):_title=title;//solo impide ejecutar
+  String get title => _title ?? "Untitled";
 }
