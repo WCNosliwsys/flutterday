@@ -6,6 +6,8 @@ import 'package:flutterday/models/ticket.dart';
 import 'package:flutterday/ui/ticket/home/ticket_item.dart';
 import 'package:provider/provider.dart';
 
+import 'ticket_create.dart';
+
 class TicketHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -16,8 +18,11 @@ class TicketHome extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
           child: Text("test"),
           onPressed: () {
-            Provider.of<TicketListModel>(context).addTicket(
-                Ticket(title: "hola"));
+          /*  Provider.of<TicketListModel>(context).addTicket(
+                Ticket(title: "hola"));*/
+          Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+            return TicketCreate();
+          }));
           }
       ),
       body:
