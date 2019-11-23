@@ -1,15 +1,54 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutterday/models/ticket.dart';
+import 'package:flutterday/widgets/keept_button.dart';
 
-class TicketCreate extends StatelessWidget {
+class TicketCreate extends StatefulWidget {
+  @override
+  _TicketCreateState createState() => _TicketCreateState();
+}
+
+class _TicketCreateState extends State<TicketCreate> {
+  Ticket ticket = Ticket();
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Column(children: <Widget>[
-        TextField(),
-        TextField(maxLines: 5,),
-      ],),
+      body: Form(
+        key: _formKey,
+        child: Column(
+          children: <Widget>[
+            TextFormField(
+              validator: (value) {
+                return value == "" ? "El titulo no puede estar vacio" : null;
+              },
+            ),
+            TextFormField(
+              validator: (value) {
+                return value == "" ? "El contenido no puede estar vacio" : null;
+              },
+              maxLines: 5,
+            ),
+            Builder(
+              builder:(BuildContext context){
+                return KeepButton(
+                  child: Text("Guardar ticket"),
+                  onPressed: () {
+                    if (_formKey.currentState.validate()) {
+
+                    } else {
+                      Scaffold.of(context).showSnackBar(SnackBar(
+                        content: Text("Error"),
+                      ));
+                    }
+                  },
+                );
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
