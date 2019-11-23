@@ -17,7 +17,7 @@ class TicketHome extends StatelessWidget {
           title: Container(
               height: 50.0,
               width: 50.0,
-              child: Text("Ticket $index")
+              child: Text(tickets[index]?.title??"Untitled"), // si no existe un elemento se pone un valor por defecto
           ),
 
         );
@@ -32,7 +32,7 @@ List<Ticket> tickets= [
   Ticket(title: "Ticket 001"),
   Ticket(title: "Ticket 002"),
   Ticket(title: "Ticket 003"),
-  Ticket(title: "Ticket 004"),
+  Ticket(),
   Ticket(title: "Ticket 005"),
   Ticket(title: "Ticket 006"),
 
