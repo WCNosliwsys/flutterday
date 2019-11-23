@@ -11,13 +11,14 @@ class TicketHome extends StatelessWidget {
       body: ListView.builder(
         itemCount: 5, // el numero de elementos que deseo mostrar en este caso 5
           itemBuilder: (BuildContext context, int index) {
+          final Ticket ticket=tickets[index];
         // el itembuilder te genera automatico infinitos elementos
         return ListTile(
           leading: Icon(Icons.person),
           title: Container(
               height: 50.0,
               width: 50.0,
-              child: Text(tickets[index]?.title??"Untitled"), // si no existe un elemento se pone un valor por defecto
+              child: Text(ticket.title), // si no existe un elemento se pone un valor por defecto
           ),
 
         );
@@ -40,5 +41,5 @@ List<Ticket> tickets= [
 
 class Ticket{
   final String title;
-  Ticket({this.title});
+  Ticket({String title}): this.title=title?? 'untitled';
 }
